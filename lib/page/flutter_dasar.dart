@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_nol/page/text_field.dart';
 
 class FlutterDasar extends StatefulWidget {
   const FlutterDasar({super.key});
@@ -27,6 +28,7 @@ class _FlutterDasarState extends State<FlutterDasar> {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
               onPressed: () {
@@ -52,6 +54,39 @@ class _FlutterDasarState extends State<FlutterDasar> {
               },
               child: const Text('Alert Dialog'),
             ),
+            const SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    margin: const EdgeInsets.all(10),
+                    behavior: SnackBarBehavior.floating,
+                    action: SnackBarAction(
+                      label: 'Tutup',
+                      textColor: Colors.white,
+                      onPressed: () {},
+                    ),
+                    content: const Text('Hello This is Snack Bar'),
+                  ),
+                );
+              },
+              child: const Text('Snack Bar'),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FDTextField(),
+                    ),
+                  );
+                },
+                child: const Text('Text Field'))
           ],
         ),
       ),
